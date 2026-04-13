@@ -1,0 +1,34 @@
+.chess-board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 400px;
+    height: 400px;
+}
+
+.chess-board div {
+    width: 100%;
+    height: 100%;
+}
+
+.chess-board .white {
+    background-color: #f0d9b5;
+}
+
+.chess-board .black {
+    background-color: #b58863;
+}
+
+.chess-piece {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#ui {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ccc;
+}
