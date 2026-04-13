@@ -3,3 +3,4 @@ chess
 stockfish
 cairosvg
 Pillow
+streamlit-chessboard
