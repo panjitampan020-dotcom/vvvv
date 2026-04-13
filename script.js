@@ -1,7 +1,7 @@
 let game = new Chess();
 let board = null;
 let playerColor = 'white';
-let stockfish = new Worker('https://unpkg.com/stockfish.js@10.0.2/stockfish.js');
+let stockfish = new Worker('./stockfish.js');
 
 stockfish.postMessage('uci');
 stockfish.postMessage('isready');
