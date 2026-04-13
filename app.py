@@ -18,20 +18,23 @@ def make_ai_move(board):
         board.push_uci(move)
     return move
 
-# Fungsi untuk render papan sebagai grid klik
+# Fungsi untuk render papan sebagai grid klik dengan emoji
 def render_board(board, selected_square=None):
     st.subheader("Papan Catur - Klik untuk Pilih dan Jalan")
+    piece_symbols = {
+        'P': '♙', 'N': '♘', 'B': '♗', 'R': '♖', 'Q': '♕', 'K': '♔',
+        'p': '♟', 'n': '♞', 'b': '♝', 'r': '♜', 'q': '♛', 'k': '♚'
+    }
     cols = st.columns(8)
-    squares = []
     for rank in range(7, -1, -1):  # Dari 8 ke 1
         for file in range(8):  # a ke h
             square = chess.square(file, rank)
             piece = board.piece_at(square)
-            piece_symbol = piece.symbol() if piece else ""
-            color = "light" if (rank + file) % 2 == 0 else "dark"
+            piece_emoji = piece_symbols.get(piece.symbol() if piece else '', '')
+            color = "⬜" if (rank + file) % 2 == 0 else "⬛"
             if selected_square == square:
-                color = "selected"
-            button_label = f"{chr(97 + file)}{rank + 1}\n{piece_symbol}"
+                color = "🟡"  # Highlight selected
+            button_label = f"{color} {piece_emoji}"
             if cols[file].button(button_label, key=f"{file}_{rank}", help=f"Square {chr(97 + file)}{rank + 1}"):
                 return square
     return None
