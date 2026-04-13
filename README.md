@@ -1,4 +1,36 @@
-# Simulasi Papan Catur dengan Stockfish
+# Simulasi Catur dengan Stockfish (Python + Streamlit)
+
+Aplikasi web sederhana untuk simulasi permainan catur dengan AI Stockfish menggunakan Python dan Streamlit.
+
+## Cara Menjalankan
+
+1. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+
+2. Jalankan aplikasi:
+   ```
+   streamlit run app.py
+   ```
+
+3. Buka browser di URL yang diberikan (biasanya http://localhost:8501).
+
+## Fitur
+
+- Pilih warna (Putih atau Hitam).
+- Input langkah manual dengan format UCI (contoh: e2e4).
+- AI (Stockfish) jalan otomatis untuk lawan.
+- Saran langkah terbaik dari Stockfish.
+- Reset permainan.
+
+## Teknologi
+
+- Python
+- Streamlit (UI web)
+- Chess (logika catur)
+- Stockfish (engine AI)
+- CairoSVG & Pillow (rendering papan)# Simulasi Papan Catur dengan Stockfish
 
 Aplikasi web sederhana untuk simulasi permainan catur di mana Stockfish memberikan saran langkah.
 
