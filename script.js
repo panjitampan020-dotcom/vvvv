@@ -87,7 +87,7 @@ function getSuggestion() {
 function startGame() {
     playerColor = document.getElementById('color-select').value;
     game = new Chess();
-    board = Chessboard('board', {
+    board = Chessboard3('board', {
         draggable: true,
         position: 'start',
         onDragStart: onDragStart,
