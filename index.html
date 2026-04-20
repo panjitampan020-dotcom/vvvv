@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game with Stockfish</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #board {
+            width: 400px;
+            height: 400px;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            border: 2px solid #333;
+        }
+        .square {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+        }
+        .white {
+            background-color: #eee;
+        }
+        .black {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="board"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stockfish/11.0.0/stockfish.js"></script>
+    <script>
+        const board = document.getElementById('board');
+        const squares = [];
+        const stockfish = new Worker('https://cdnjs.cloudflare.com/ajax/libs/stockfish/11.0.0/stockfish.js');
+
+        for (let i = 0; i < 64; i++) {
+            const square = document.createElement('div');
+            square.classList.add('square', (Math.floor(i / 8) + (i % 8)) % 2 === 0 ? 'white' : 'black');
+            squares.push(square);
+            board.appendChild(square);
+        }
+
+        stockfish.postMessage('uci');
+
+        // Initialize game
+        function startGame() {
+            // Add game logic and UI interactions here
+        }
+
+        startGame();
+    </script>
+</body>
+</html>
